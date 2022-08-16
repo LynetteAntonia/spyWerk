@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.lobby-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+    background-image: url('/src/assets/images/spy.png');
+    background-position: center;
+}
+
+.login-div {
+    width: 430px;
+    height: 300px;
+    padding: 60px 35px 35px 35px;
+    border-radius: 40px;
+    margin-top: 150px;
+    margin-left: 70px;
+    filter: drop-shadow(20px 20px 20px black);
+    background-color: rgba(250, 250, 250, 0.377);
+    /* Just adjust the color or opacity to make the text pop! */
+    box-shadow: inset 0 0 800 800px rgb(255 255 255 / 20%);
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: -15%;
+    letter-spacing: 0.5px;
+    font-weight: 90;
+    font-family: 'PT Mono', monospace;
+    color: white;
+}
+
+.fields {
+    width: 100%;
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fieldsInput {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 20px;
+    color: rgb(48, 47, 47);
+    padding: 20px 10px 20px 5px;
+    width: 400px;
+    font-family: 'PT Mono', monospace;
+}
+
+.username {
+    margin-bottom: 30px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #464747, inset -8px -8px 8px #979494;
+}
+
+.fieldsSvg {
+    width: 0px;
+    margin: 15px 0px 0px 20px;
+}
+
+.signin-button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 90;
+    font-family: 'PT Mono', monospace;
+    color: #fff;
+    text-align: center;
+    background: #011d2e;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    transition: 0.5s;
+    margin-top: 10%;
+    margin-bottom: 5px;
+}
+
+.signin-button:hover {
+    background: #E45656;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #f18787;
+}
+
+.signin-button:active {
+    background: #E45656;
+}
+
+.navbar {
+    height: 40px;
+    display: flex;
+    background-color: #011d2e;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+}
