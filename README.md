@@ -1,6 +1,6 @@
 # List of Contents
-- Getting Started with The Project
-- Commit Message Convention
+- [Getting Started with The Project](#getting-started-with-create-react-app)
+- [Commit Message Convention](#commit-message-convention)
 
 
 # Getting Started with Create React App
@@ -86,4 +86,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - style: A code that is related to styling.
 - test: Adding new test or making changes to existing test.
 
-example: ```git commit -m "build: add bootstrap library"```
+Example: ```git commit -m "build: add bootstrap library"```
