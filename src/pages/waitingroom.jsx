@@ -9,6 +9,15 @@ export default function WaitingRoom({ socket, username }) {
       socket.on('user-list', (userList) => {
         setUsers([...userList])
       })
+
+      socket.on('friend-join', (userList) => {
+        setUsers([...userList])
+      })
+
+      socket.on('friend-leave', ({ userList, message }) => {
+        console.log(message)
+        setUsers([...userList])
+      })
   
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
