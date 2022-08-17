@@ -2,7 +2,7 @@ import './../styles/lobby.css'
 import './../styles/colors.css'
 import { useEffect, useState } from 'react';
 
-export default function WaitingRoom({ socket, username }) {
+export default function WaitingRoom({ socket, username, setRole, setPlace, setIsGameStart }) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -18,9 +18,24 @@ export default function WaitingRoom({ socket, username }) {
         console.log(message)
         setUsers([...userList])
       })
+
+      socket.on('role-assign', ({ userList }) => {
+        userList.forEach(u => {
+            if (u.username === username) {
+                setRole(u.role)
+                setPlace(u.place)
+            }
+        });
+
+        setIsGameStart(true)
+      })
   
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    const startGame = () => {
+        socket.emit("game-start");
+    }
 
     return (
         <div className='waiting-room-container bg-primary'>
@@ -42,7 +57,7 @@ export default function WaitingRoom({ socket, username }) {
                 }
             </div>
             {/* ADMIN ONLY */}
-            <button className='start-game-button'>
+            <button className='start-game-button' onClick={() => startGame()}>
                 Start Game
             </button>
             {/* PLAYERS ONLY */}
