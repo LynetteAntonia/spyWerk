@@ -1,5 +1,5 @@
 :root {
-    --primary: #011d2e;
+    --primary: #012B44;
     --secondary: #E45656;
     --white: #FFFFFF;
     --grey: #616161;
@@ -7,10 +7,6 @@
 
 .primary {
     color: var(--primary);
-}
-
-.bg-primary {
-    background-color: var(--primary);
 }
 
 .secondary {
