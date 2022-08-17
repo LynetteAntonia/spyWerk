@@ -1,18 +1,22 @@
-import { useState } from 'react'
 import './../styles/lobby.css'
 import './../styles/colors.css'
 
-export default function Lobby() {
-
-    const [userName, setUserName] = useState("")
+export default function Lobby({ socket, setUsername }) {
     // const [showWarning, setShowWarning] = useState(false)
 
-
     const startGame = () => {
-        if (userName.length > 0) {
-            window.location.pathname = '/waitingRoom'
+        const username = document.getElementById('username').value;
+        if (username.length < 3) {
+            window.alert("Please input at least 3 characters");
+            return;
         }
-    }
+
+        socket.emit("user-join", { username }, (response) => {
+            console.log(response);
+        });
+
+        setUsername(username);
+    };
 
     return (
         <div className='lobby-container bg-primary'>
@@ -22,7 +26,7 @@ export default function Lobby() {
                 </div>
                 <div className="fields">
                     <div className="username">
-                        <input onChange={(e) => setUserName(e.target.value)} placeholder=' Enter username' className='fieldsInput' />
+                        <input id='username' placeholder=' Enter username' className='fieldsInput' />
                     </div>
                     {/* <p hidden={showWarning} style={{ color: "red" }}>please enter username</p> */}
                     <button onClick={() => startGame()} className='signin-button'>

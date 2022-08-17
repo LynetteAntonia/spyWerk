@@ -1,7 +1,17 @@
 import './../styles/lobby.css'
 import './../styles/colors.css'
+import { useEffect, useState } from 'react';
 
-export default function WaitingRoom() {
+export default function WaitingRoom({ socket, username }) {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+      socket.on('user-list', (userList) => {
+        setUsers([...userList])
+      })
+  
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <div className='waiting-room-container bg-primary'>
@@ -9,50 +19,18 @@ export default function WaitingRoom() {
                 <div className='waiting-room-title'>
                     Waiting room
                 </div>
-                <div className='player-list'>
-                    player 1
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 2
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 3
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 4
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 5
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 3
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 4
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 5
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 3
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 4
-                    <hr />
-                </div>
-                <div className='player-list'>
-                    player 5
-                    <hr />
-                </div>
+                {
+                    users.length ?
+                        users.map((user) => (
+                            <div key={user.id} className='player-list'>
+                                {user.username}
+                            </div>
+                        ))
+                        :
+                        <div> 
+                            Waiting room empty ... 
+                        </div>
+                }
             </div>
             {/* ADMIN ONLY */}
             <button className='start-game-button'>
