@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './../styles/lobby.css'
 import './../styles/colors.css'
 
-export default function Lobby() {
+export default function Login() {
 
     const [userName, setUserName] = useState("")
     // const [showWarning, setShowWarning] = useState(false)

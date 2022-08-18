@@ -5,7 +5,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Lobby from './pages/lobby';
+import Login from './pages/login';
 import Navbar from './components/navbar';
 import WaitingRoom from './pages/waitingroom';
 
@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Lobby />} />
+        <Route path="/" element={<Login />} />
         <Route path="/waitingRoom" element={<WaitingRoom />} />
       </Routes>
     </BrowserRouter>
