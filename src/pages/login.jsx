@@ -1,10 +1,8 @@
 import './../styles/lobby.css'
 import './../styles/colors.css'
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function Lobby({ socket, setUsername }) {
-
-    const [userName, setUserName] = useState("")
     // const [showWarning, setShowWarning] = useState(false)
 
     const startGame = () => {
