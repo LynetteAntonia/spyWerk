@@ -1,21 +1,35 @@
 import './App.css';
-import React from 'react'
+import React, { useState } from 'react';
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
-import Login from './pages/login';
+import Lobby from './pages/login';
 import Navbar from './components/navbar';
 import WaitingRoom from './pages/waitingroom';
+import GameRoom from './pages/gameroom';
+
+const { io } = require("socket.io-client");
+const socket = io("http://localhost:3001");
 
 function App() {
+
+  const [username, setUsername] = useState('')
+
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/waitingRoom" element={<WaitingRoom />} />
+        <Route
+          path="/"
+          element={
+            <Lobby
+              socket={socket}
+              username={username}
+              setUsername={(name) => setUsername(name)}
+            />
+          } />
       </Routes>
     </BrowserRouter>
   );
