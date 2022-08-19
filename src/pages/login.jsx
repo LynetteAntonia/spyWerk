@@ -1,10 +1,11 @@
 import './../styles/lobby.css'
 import './../styles/colors.css'
 import React, { useState } from 'react'
+import WaitingRoom from './waitingroom';
 
 export default function Lobby({ socket, setUsername }) {
 
-    const [userName, setUserName] = useState("")
+    const [username, setUserName] = useState("")
     // const [showWarning, setShowWarning] = useState(false)
 
     const startGame = () => {
