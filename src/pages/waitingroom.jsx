@@ -8,7 +8,8 @@ export default function WaitingRoom({
     setRole, 
     setPlace, 
     setIsGameStart, 
-    setEndTime, 
+    setEndTime,
+    setVotes,
 }) {
     const [users, setUsers] = useState([]);
 
@@ -27,13 +28,21 @@ export default function WaitingRoom({
       })
 
       socket.on('role-assign', ({ userList, endTime }) => {
+        const votes = []
+
         userList.forEach(u => {
+            votes.push({
+                username: u.username,
+                voteCount: 0,
+            })
+
             if (u.username === username) {
                 setRole(u.role)
                 setPlace(u.place)
             }
         });
 
+        setVotes(votes)
         setEndTime(endTime)
         setIsGameStart(true)
       })
