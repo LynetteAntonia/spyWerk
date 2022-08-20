@@ -2,7 +2,14 @@ import './../styles/lobby.css'
 import './../styles/colors.css'
 import { useEffect, useState } from 'react';
 
-export default function WaitingRoom({ socket, username, setRole, setPlace, setIsGameStart }) {
+export default function WaitingRoom({ 
+    socket, 
+    username, 
+    setRole, 
+    setPlace, 
+    setIsGameStart, 
+    setEndTime, 
+}) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -19,7 +26,7 @@ export default function WaitingRoom({ socket, username, setRole, setPlace, setIs
         setUsers([...userList])
       })
 
-      socket.on('role-assign', ({ userList }) => {
+      socket.on('role-assign', ({ userList, endTime }) => {
         userList.forEach(u => {
             if (u.username === username) {
                 setRole(u.role)
@@ -27,6 +34,7 @@ export default function WaitingRoom({ socket, username, setRole, setPlace, setIs
             }
         });
 
+        setEndTime(endTime)
         setIsGameStart(true)
       })
   

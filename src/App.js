@@ -18,6 +18,7 @@ function App() {
   const [role, setRole] = useState("");
   const [place, setPlace] = useState("");
   const [isGameStart, setIsGameStart] = useState(false);
+  const [endTime, setEndTime] = useState(0)
 
   if (isGameStart) {
     return <GameRoom 
@@ -25,6 +26,7 @@ function App() {
       username={username} 
       role={role} 
       place={place} 
+      endTime={endTime}
     />
   }
 
@@ -35,6 +37,7 @@ function App() {
       setRole={(str) => setRole(str)}
       setPlace={(str) => setPlace(str)}
       setIsGameStart={(bool) => setIsGameStart(bool)}
+      setEndTime={(seconds) => setEndTime(seconds)}
     />;
   }
 
