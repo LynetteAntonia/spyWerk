@@ -17,7 +17,7 @@ export default function GameRoom({
 
     useEffect(() => {
         const t = setTimeout(() => {
-            setTimer(unixTimeDiff(endTime, new Date().getTime()));
+            if (timer > 0) setTimer(unixTimeDiff(endTime, new Date().getTime()));
         }, 1000);
     
         return () => clearTimeout(t);
@@ -65,7 +65,7 @@ export default function GameRoom({
                     Game room
                 </div>
 
-                <h5 className='waiting-room-title'> 
+                <h5 className='waiting-room-title' style={{ color: timer <= 10 && timer % 2 === 0 ? "red" : "white" }}> 
                     Time Left 
                     <br /> 
                     { Math.floor(timer/60) < 10 ? "0" + Math.floor(timer/60) : Math.floor(timer/60) }
