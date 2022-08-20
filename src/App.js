@@ -14,9 +14,10 @@ const { io } = require("socket.io-client");
 const socket = io("http://localhost:3001");
 
 function App() {
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState("");
   const [role, setRole] = useState("");
   const [place, setPlace] = useState("");
+  const [votes, setVotes] = useState([]);
   const [isGameStart, setIsGameStart] = useState(false);
   const [endTime, setEndTime] = useState(0)
 
@@ -26,6 +27,8 @@ function App() {
       username={username} 
       role={role} 
       place={place} 
+      votes={votes}
+      setVotes={(arr) => setVotes([...arr])}
       endTime={endTime}
     />
   }
@@ -38,6 +41,7 @@ function App() {
       setPlace={(str) => setPlace(str)}
       setIsGameStart={(bool) => setIsGameStart(bool)}
       setEndTime={(seconds) => setEndTime(seconds)}
+      setVotes={(arr) => setVotes([...arr])}
     />;
   }
 
