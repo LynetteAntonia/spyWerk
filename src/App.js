@@ -51,6 +51,24 @@ function App() {
               setUsername={(name) => setUsername(name)}
             />
           } />
+        <Route
+          path="/waitingroom"
+          element={
+            <GameRoom
+              socket={socket}
+              username={username}
+              setUsername={(name) => setUsername(name)}
+            />
+          } />
+        <Route
+          path="/gameroom"
+          element={
+            <GameRoom
+              socket={socket}
+              username={username}
+              setUsername={(name) => setUsername(name)}
+            />
+          } />
       </Routes>
     </BrowserRouter>
   );

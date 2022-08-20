@@ -3,8 +3,6 @@ import './../styles/colors.css'
 import React from 'react'
 
 export default function Lobby({ socket, setUsername }) {
-    // const [showWarning, setShowWarning] = useState(false)
-
     const startGame = () => {
         const username = document.getElementById('username').value;
         if (username.length < 3) {

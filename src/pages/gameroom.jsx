@@ -8,12 +8,12 @@ export default function GameRoom({ socket, username, role, place }) {
                 <div className='waiting-room-title'>
                     Game room
                 </div>
-                
+
                 <br /><br />
                 <div className='waiting-room-title'>
-                  <h3> username: {username} </h3>
-                  <h3> place: {place} </h3>
-                  <h3> role: {role} </h3>
+                    <h4> username: {username} </h4>
+                    <h4> place: {place} </h4>
+                    <h4> You are a {role} </h4>
                 </div>
             </div>
         </div>
