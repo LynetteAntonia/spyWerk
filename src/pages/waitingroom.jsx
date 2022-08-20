@@ -12,6 +12,7 @@ export default function WaitingRoom({
     setVotes,
 }) {
     const [users, setUsers] = useState([]);
+    const [duration, setDuration] = useState(8)
 
     useEffect(() => {
       socket.on('user-list', (userList) => {
@@ -51,7 +52,7 @@ export default function WaitingRoom({
     }, [])
 
     const startGame = () => {
-        socket.emit("game-start");
+        socket.emit("game-start", { duration });
     }
 
     return (
@@ -74,6 +75,10 @@ export default function WaitingRoom({
                 }
             </div>
             {/* ADMIN ONLY */}
+            <div style={{ backgroundColor: "#011d2e", color: "white", fontSize: "28px", padding: "12px" }}>
+                <input type="range" name="" id="" min="1" max="15" defaultValue={8} onChange={(e) => setDuration(e.target.value)} />
+                <span> {duration} minute(s) </span>
+            </div>
             <button className='start-game-button' onClick={() => startGame()}>
                 Start Game
             </button>
