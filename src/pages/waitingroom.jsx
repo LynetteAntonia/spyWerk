@@ -34,10 +34,6 @@ export default function WaitingRoom({
             }
         });
 
-        // let now = new Date()
-        // let end = new Date(now.getTime() + (8*60000+3000))
-        // let diff = end.getTime() - now.getTime()
-
         setEndTime(endTime)
         setIsGameStart(true)
       })
